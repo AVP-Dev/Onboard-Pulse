@@ -1,0 +1,24 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" width="32" height="32">
+  <defs>
+    <linearGradient id="pulseGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0F766E"/>
+      <stop offset="100%" stop-color="#115E59"/>
+    </linearGradient>
+  </defs>
+  <!-- Squircle container -->
+  <rect width="32" height="32" rx="7" fill="url(#pulseGrad)"/>
+  
+  <!-- Subtle inner border -->
+  <rect x="0.5" y="0.5" width="31" height="31" rx="6.5" fill="none" stroke="#FFFFFF" stroke-opacity="0.15"/>
+
+  <!-- Dynamic heartbeat & newcomer node -->
+  <path d="M 5 16.5 L 9 16.5 L 12 11.5 L 15.5 21.5 L 19 8 L 22.5 18 L 25 16.5 L 27 16.5" 
+        fill="none" 
+        stroke="#FFFFFF" 
+        stroke-width="2.2" 
+        stroke-linecap="round" 
+        stroke-linejoin="round"/>
+        
+  <!-- Employee pulse peak circle -->
+  <circle cx="19" cy="8" r="1.75" fill="#5EEAD4" />
+</svg>
