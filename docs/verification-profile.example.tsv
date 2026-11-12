@@ -1,0 +1,9 @@
+# name	layer	required	command
+# Uncomment and adapt rows after inspecting the project manifests.
+# Do not put credentials, tokens, or private data in this file.
+# typecheck	static	1	pnpm typecheck
+# lint	static	1	pnpm lint
+# test	positive	1	pnpm test
+# security-secrets	security	1	./scripts/security-scan.sh
+# security-sast	security	1	<approved project-local SAST command>
+# security-dependencies	security	1	<approved dependency audit command>

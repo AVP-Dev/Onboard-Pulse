@@ -1,0 +1,5 @@
+# name	layer	required	command
+typecheck	static	1	npm run typecheck
+lint	static	1	npm run lint
+test	positive	1	npm run test:ts
+security-secrets	security	1	./scripts/security-scan.sh
