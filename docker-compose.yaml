@@ -3,10 +3,11 @@ services:
     build:
       context: .
       dockerfile: Dockerfile
-    container_name: onboard-pulse
     restart: unless-stopped
     ports:
-      - "3000:3000"
+      - "${HOST_PORT:-3088}:3000"
+    networks:
+      - coolify
     environment:
       - NODE_ENV=production
       - PORT=3000
@@ -15,11 +16,16 @@ services:
     volumes:
       - pulse-data:/app/data
     healthcheck:
-      test: ["CMD", "wget", "-qO-", "http://localhost:3000/api/dev/seed"]
+      test: ["CMD", "wget", "-qO-", "http://localhost:3000/api/employees"]
       interval: 30s
       timeout: 5s
       retries: 3
       start_period: 10s
+
+networks:
+  coolify:
+    name: coolify
+    external: true
 
 volumes:
   pulse-data:

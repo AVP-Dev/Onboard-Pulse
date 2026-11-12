@@ -13,7 +13,7 @@ FROM base AS builder
 COPY --from=deps /app/node_modules ./node_modules
 COPY . .
 ENV NEXT_TELEMETRY_DISABLED=1
-RUN npm run build
+RUN npm run build && rm -rf .next/cache
 
 # 4. Production Runner stage
 FROM base AS runner
@@ -30,9 +30,9 @@ COPY --from=builder /app/package.json ./package.json
 COPY --from=builder /app/node_modules ./node_modules
 COPY --from=builder /app/.next ./.next
 COPY --from=builder /app/src ./src
-COPY --from=builder /app/data ./data
 COPY --from=builder /app/scripts ./scripts
 COPY --from=builder /app/tsconfig.json ./tsconfig.json
+RUN mkdir -p /app/data
 
 # Persistent volume for SQLite database
 VOLUME ["/app/data"]

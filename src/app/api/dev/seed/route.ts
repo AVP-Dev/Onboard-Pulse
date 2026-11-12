@@ -2,6 +2,10 @@ import { NextResponse } from 'next/server';
 import { seedDatabase } from '@/db/seed';
 import { enforceAdmin } from '@/lib/auth';
 
+export async function GET() {
+  return NextResponse.json({ status: 'ok' });
+}
+
 export async function POST(request: Request) {
   try {
     const authError = enforceAdmin(request);
